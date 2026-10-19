@@ -29,13 +29,13 @@ class RegionInicialRunnerTest {
     private RegionInicialRunner runner;
 
     @Test
-    @DisplayName("run — sin regiones → persiste la región por defecto")
-    void run_sinRegiones_debeCrearUna() {
+    @DisplayName("run — sin regiones → persiste las regiones base")
+    void run_sinRegiones_debeCrearLasRegionesBase() {
         when(clienteDao.findAllRegiones()).thenReturn(List.of());
 
         runner.run(null);
 
-        verify(em, times(1)).persist(any(Region.class));
+        verify(em, times(RegionInicialRunner.REGIONES.size())).persist(any(Region.class));
     }
 
     @Test

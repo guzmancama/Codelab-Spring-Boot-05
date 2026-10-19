@@ -22,7 +22,7 @@ class ClienteServiceApplicationTests {
 
 	@Test
 	void alArrancar_existeAlMenosUnaRegion() {
-		// El import.sql de test está vacío: RegionInicialRunner crea la región por defecto
+		// El import.sql de test está vacío: RegionInicialRunner crea las regiones base
 		assertThat(clienteDao.findAllRegiones()).isNotEmpty();
 	}
 
